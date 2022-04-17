@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<!--
+  Customize this policy to fit your own app's needs. For more guidance, see:
+  https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+  Some notes:
+  * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+  * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+  * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+  * Enable inline JS: add 'unsafe-inline' to default-src
+-->
+	<meta http-equiv="Content-Security-Policy"
+		content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="theme-color" content="#2196f3">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<title>Ontario Taxable Income Calculator</title>
+	<link rel="stylesheet" href="./index.css">
+	<!--<script>
+		$(document).ready(function() {
+		$('.inputField').keypress(function (e) {
+			if (e.keyCode == 13) {
+				var index = $('.inputField').index(this) + 1;
+				$('.inputField').eq(index).focus();
+			}
+		});
+	});
+	</script>-->
+</head>
+
+<body>
+	<div id="app" class="page-content">
+		<!-- Status bar overlay for fullscreen mode-->
+		<div class="statusbar"></div>
+		<!-- Main view -->
+		<div class="view view-main view-init ios-edges" data-url="/">
+			<div class="page">
+				<nav class="navbar">
+					<div class="navbar-inner">
+						<h1 class="title sliding"><b>Ontario and Federal Tax Calculator</b></h1>
+					</div>
+				</nav>
+				<main class="page-content">
+					<!-- content goes there -->
+					<form class="list" id="adding">
+						<ul>
+							<li>
+								<div class="item-content item-input">
+									<div class="item-inner">
+										<label for="incometax" class="item-title item-label"><b>Enter Taxable Income:</b></label>
+										<div class="item-input-wrap">
+											<input onkeypress="if(event.keyCode == 13){event.preventDefault(); document.getElementById('taxdeduction').focus();}" id="incometax" name="incometax" type="text" placeholder="Enter taxable income" class="inputField">
+                                        </div>
+                                    </div>
+                                </div>
+							</li>
+							<li>
+								<div class="item-content item-input">
+									<div class="item-inner">
+										<label for="taxdeduction" class="item-title item-label"><b>Enter Tax Deducted:</b></label>
+										<div class="item-input-wrap">
+											<input onkeypress='handleEnter(event)' id="taxdeduction" name="taxdeduction" type="text" placeholder="Enter deductable tax" class="inputField">
+                                        </div>
+                                    </div>
+                                </div>
+							</li>
+							<li>
+								<div class="item-content item-input">
+									<div class="item-inner">
+										<label for="ontax" class="item-title item-label"><b>Ontario Tax: </b></label>
+										<div class="item-input-wrap">
+											<p id="ontax">&nbsp;</p>
+										</div>
+									</div>
+                                </div>
+							</li>
+							<li>
+								<div class="item-content item-input">
+									<div class="item-inner">
+										<label for="fedtax" class="item-title item-label"><b>Federal Tax: </b></label>
+										<div class="item-input-wrap">
+											<p id="fedtax">&nbsp;</p>
+                                        </div>
+                                    </div>
+                                </div>
+							</li>
+							<li>
+								<div class="item-content item-input">
+									<div class="item-inner">
+										<label for="total" class="item-title item-label"><b>Total: </b></label>
+										<div class="item-input-wrap">
+											<p id="total">&nbsp;</p>
+                                        </div>
+                                    </div>
+                                </div>
+							</li>
+							<li>
+								<div class="item-content item-input">
+									<div class="item-inner">
+										<Owing: for="owing" class="item-title item-label"><b>Owing: </b></label>
+										<div class="item-input-wrap">
+											<p id="owing">&nbsp;</p>
+                                        </div>
+                                    </div>
+                                </div>
+							</li>
+                        </ul>
+                        <div class="col">
+                            <button onkeypress="event.preventDefault();" type="submit" class="button button-fill fill-form-from-data" href="#">Calculate</button>
+                        </div>
+                    </form>
+				</main>
+			</div>
+		</div>
+	</div>
+	<script src="./index.js"></script>
+	<!--<script>
+		function handleEnter(e){
+			var key;
+			if(e.keyCode == 13){
+				document.getElementById("adding").onsubmit=function(){
+				return false;
+			}}
+			else{
+				document.getElementById("adding").onsubmit=function(){
+				return true;
+			}}
+		}
+	</script>-->
+</body>
+</html>

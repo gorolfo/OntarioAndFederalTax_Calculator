@@ -1,0 +1,28 @@
+{
+  "name": "ontarioandfederaltax",
+  "version": "1.0.0",
+  "description": "calculates ontario and federal tax using test driven development with jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel --no-hmr public/index.html"
+  },
+  "keywords": [
+    "ontariotax",
+    "jest",
+    "node",
+    "tdd"
+  ],
+  "author": "Glenn Orolfo",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "*",
+    "parcel-bundler": "*"
+  },
+  "dependencies": {
+    "dom": "*",
+    "framework7": "*",
+    "framework7-icons": "*",
+    "material-design-icons": "*"
+  }
+}
